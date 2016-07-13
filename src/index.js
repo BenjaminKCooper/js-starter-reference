@@ -1,23 +1,31 @@
-// es6 import style
-import $ from 'jquery';
+// change require to es6 import style
+// import $ from 'jquery';
+// import './style.scss'
+//
+// let num = 0;
+//
+// let interval = window.setInterval(counter,1000) //I learned how to use the setInterval function from the following link: https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval
+//
+// function counter(){
+//   num = num + 1;
+//   $('#main').html("You've been on this page for "+num+" seconds.");
+// }
 
-import './style.scss';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import SearchBar from './components/search_bar';
+
+// const App = () => {
+//   return <div>All the React are belong to us!</div>;
+// };
+
+const App = () => {
+  return (
+    <div>
+      <SearchBar />
+    </div>
+  );
+};
 
 
-// this is a generator function.
-// note the *
-function *simpleCounter() {
-  let count = 0;
-  while (true) {
-    yield count++;
-  }
-}
-
-// instantiate generator
-const counter = simpleCounter();
-
-setInterval(
-  // arrow notation for anonymous function
-  () => { $('#main').html(`You've been on this page for ${counter.next().value} seconds.`); }
-  , 1000
-);
+ReactDOM.render(<App />, document.getElementById('main'));
